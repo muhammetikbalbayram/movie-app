@@ -1,30 +1,58 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
-  <router-view/>
+  <header>
+    <router-link to="/">
+      <h1><span>Vue</span>Movies</h1>
+    </router-link>
+    <router-link to="/deniz/istanbul/ankara">Click me</router-link>
+    <button @click="goToDenizPage">Go to Deniz Page</button>
+  </header>
+  <main>
+    <router-view/>
+  </main>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
+<script>
+export default {
+  methods: {
+    goToDenizPage(){
+      this.$router.push({path : '/deniz/123/abc'})
     }
   }
 }
+</script>
+
+<style lang="scss">
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Fira Sans' , sans-serif;
+
+    &::selection {
+      background: transparentize(#42B883, 0.5);
+    }
+  }
+  body {
+    background-color: #35495E;
+  }
+  a{
+    text-decoration: none;
+  }
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 16px;
+    background-color: #2C3D4E;
+    box-shadow: 0px 0px 6px rgba(0,0,0,0.1);
+
+    h1 {
+      color: #FFF;
+      font-size: 28px;
+
+      span {
+        color: #42B883;
+      }
+    }
+  }
 </style>
